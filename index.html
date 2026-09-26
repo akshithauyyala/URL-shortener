@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f6">
+  <meta name="description" content="Create clean, memorable short links and understand how they perform.">
+  <title>Shortly — links, made simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="analytics.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand" href="#home" aria-label="Shortly home"><span class="brand-mark">s</span> shortly<span class="brand-period">.</span></a>
+    <button class="mobile-menu" id="menu-toggle" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="#analytics-preview">Analytics</a>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch color theme" title="Switch color theme"><span class="theme-glyph">◐</span></button>
+      <a class="button button-dark nav-cta" href="#dashboard">Go to dashboard <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR LINKS, SIMPLIFIED</div>
+        <h1>Shorten links.<br><span>Share faster.</span></h1>
+        <p>Long URLs get in the way. Make them short, memorable, and ready to go in one click.</p>
+      </div>
+      <form class="shorten-card" id="shorten-form" novalidate>
+        <label for="long-url">Your long URL</label>
+        <div class="url-input-wrap"><span class="input-link-icon" aria-hidden="true">↗</span><input id="long-url" name="url" type="url" placeholder="https://example.com/your-very-long-link" autocomplete="url" required><button class="button button-primary" id="shorten-button" type="submit">Shorten URL <span aria-hidden="true">→</span></button></div>
+        <div class="form-bottom"><div class="alias-field"><label for="alias">Custom alias <span>(optional)</span></label><div class="alias-input-wrap"><span>shortly/</span><input id="alias" name="alias" type="text" placeholder="your-name" maxlength="48" autocomplete="off" aria-describedby="alias-hint"></div><small id="alias-hint">Letters, numbers, hyphens, and underscores</small></div><div class="form-note"><span class="secure-icon">✓</span> Free, fast, and secure</div></div>
+        <p class="field-error" id="form-error" role="alert" aria-live="polite"></p>
+      </form>
+      <div class="result-card" id="result-card" hidden aria-live="polite"><div class="result-icon">✓</div><div class="result-main"><span class="result-label">Your short link is ready</span><a id="result-link" href="#"></a><span class="result-original" id="result-original"></span></div><div class="result-actions"><button class="button button-light" data-copy-result>Copy link</button><button class="button button-primary" data-open-result>Open ↗</button></div><button class="icon-button result-dismiss" aria-label="Dismiss result" id="dismiss-result">×</button></div>
+      <div class="hero-footnote"><span>↳</span> Short links that make a long story short.</div>
+    </section>
+
+    <section class="trusted-line" aria-label="Product benefit"><span>BUILT FOR THE WAY YOU SHARE</span><i></i><span>Simple by design</span><i></i><span>Private by default</span><i></i><span>Yours to manage</span></section>
+
+    <section class="analytics-showcase" id="analytics-preview"><div class="showcase-copy"><div class="eyebrow">A LITTLE MORE INSIGHT</div><h2>Know what’s<br>getting <span>clicked.</span></h2><p>See how your links perform at a glance. Your click history is stored privately in this browser, so the numbers are always yours.</p><a class="button button-dark" href="#dashboard">Explore your dashboard <span>→</span></a></div><div class="preview-card"><div class="preview-card-head"><div><span class="preview-overline">LINK PERFORMANCE</span><h3>Your clicks, over time</h3></div><span class="preview-period">LAST 7 DAYS <span>⌄</span></span></div><div class="preview-total">0<small>clicks this week</small></div><div class="chart-preview" aria-label="Link performance chart preview, showing no clicks yet"><div class="chart-y-labels"><span>4</span><span>3</span><span>2</span><span>1</span><span>0</span></div><div class="chart-area"><div class="chart-gridlines"><i></i><i></i><i></i><i></i><i></i></div><svg viewBox="0 0 560 140" preserveAspectRatio="none" aria-hidden="true"><path class="chart-line" d="M0 127 H560"/></svg><div class="chart-x-labels"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div></div></div><div class="chart-caption"><span><i></i> Total clicks</span><span>Your activity appears here</span></div></div></section>
+
+    <section class="section dashboard-section" id="dashboard"><div class="dashboard-heading"><div><div class="eyebrow">YOUR LINK WORKSPACE</div><h2>Good links, <span>all in one place.</span></h2><p>Manage your links and keep an eye on how they’re doing.</p></div><button class="button button-primary" data-focus-shortener>Create a short link <span>+</span></button></div>
+      <div class="stats-grid" id="stats-grid"><article class="stat-card"><span class="stat-label">Total links <span class="stat-mark">↗</span></span><strong id="stat-links">0</strong><small>links created in this browser</small></article><article class="stat-card"><span class="stat-label">Total clicks <span class="stat-mark">◎</span></span><strong id="stat-clicks">0</strong><small>across all your links</small></article><article class="stat-card"><span class="stat-label">Active links <span class="stat-mark">●</span></span><strong id="stat-active">0</strong><small>ready to share</small></article><article class="stat-card"><span class="stat-label">Clicks today <span class="stat-mark">⌁</span></span><strong id="stat-today">0</strong><small>since midnight</small></article></div>
+      <section class="links-panel" aria-labelledby="links-title"><div class="links-panel-header"><div><h3 id="links-title">Your links <span id="link-count">0</span></h3><p>Keep track of everything you’ve shortened.</p></div><div class="links-tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="link-search" type="search" placeholder="Search links…" aria-label="Search links"></label><label class="select-wrap"><span class="sr-only">Filter links</span><select id="link-filter"><option value="all">All links</option><option value="active">Active</option><option value="recent">Recently created</option><option value="popular">Most clicked</option></select></label></div></div>
+        <div class="table-wrap"><table><thead><tr><th>SHORT LINK</th><th>DESTINATION</th><th>CLICKS</th><th>CREATED</th><th>STATUS</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="links-body"></tbody></table></div><div class="links-empty" id="links-empty"><div class="empty-art"><span>↗</span><i></i><i></i></div><h4>No links yet — create your first short link and start sharing.</h4><p>Your links and click activity will show up here.</p><button class="button button-primary" data-focus-shortener>Create your first link <span>+</span></button></div><div class="no-results" id="no-results" hidden><strong>No links match that search.</strong><span>Try another name or change the filter.</span></div>
+      </section><p class="privacy-note"><span>◈</span> Your links and click data are saved in this browser only.</p>
+    </section>
+    <section class="final-cta"><div class="cta-orb" aria-hidden="true"></div><div><div class="eyebrow">MAKE YOUR NEXT LINK A GOOD ONE</div><h2>Ready when <span>you are.</span></h2><p>Short, simple, and yours to share.</p></div><a href="#home" class="button button-white">Shorten a link <span>↑</span></a></section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#home"><span class="brand-mark">s</span> shortly<span class="brand-period">.</span></a><span>Simple links for wherever life takes you.</span><nav aria-label="Footer navigation"><a href="#analytics-preview">Analytics</a><a href="#dashboard">Dashboard</a></nav><small>© <span id="year"></span> Shortly. Made for sharing.</small></footer>
+
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div class="modal-backdrop" id="delete-modal" hidden><section class="modal" role="alertdialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description"><button class="icon-button modal-close" data-cancel-delete aria-label="Close dialog">×</button><div class="modal-icon">!</div><h2 id="modal-title">Delete this link?</h2><p id="modal-description">This action can’t be undone. The short link and its click history will be permanently removed from this browser.</p><div class="modal-actions"><button class="button button-light" data-cancel-delete>Cancel</button><button class="button button-danger" id="confirm-delete">Delete link</button></div></section></div>
+  <section class="route-screen" id="route-screen" hidden></section>
+  <script src="script.js"></script>
+</body>
+</html>
